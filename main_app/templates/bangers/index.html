@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Bangersville, USA</h1>
+
+{% for banger in bangers %}
+<div class="card">
+    <div class="card-content">
+        <a href="{% url 'detail' banger.id %}">
+            <span class="card-title">{{ banger.name }}</span>
+            <p>Genre: {{ banger.genre }}</p>
+            <p>Artist: {{ banger.artist }}</p>
+            {% if banger.hypeness > 0 %}
+                <p>Hypeness: {{ banger.hypeness }}</p>
+            {% else %}
+                <p>Hypeness: This Song Sucks</p>
+            {% endif %}
+        </a>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
